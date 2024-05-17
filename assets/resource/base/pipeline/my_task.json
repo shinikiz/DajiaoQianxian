@@ -1,5 +1,44 @@
 {
-    "MyTask1": {},
-    "MyTask2": {},
-    "MyTask3": {}
+
+    "进入基地": {
+        "recognition":"OCR",
+        "expected":"基地",
+        "action":"Click",
+        "next":[
+            "收矿"
+        ]
+    },
+    "查看矿物":{
+        "next":[
+            "收矿",
+            "进宿舍"
+        ]
+    },
+    "收矿": {
+        "is_Sub":true,
+        "recognition":"TemplateMatch",
+        "template":"102503_452_443_204_66__402_393_304_166.png",
+        "action":"Click",
+        "next":[
+            "进宿舍"
+        ]
+    },
+    "确认收矿": {
+        
+        "recognition":"OCR",
+        "expected":"点击空白处继续",
+        "action":"Click"
+    },
+    "进宿舍": {
+        "recognition":"OCR",
+        "expected":"宿舍",
+        "action":"Click"
+    },
+    "下麻烦": {
+        "recognition":"OCR",
+        "expected":"角色",
+        "action":"Click"
+    }
+
+
 }

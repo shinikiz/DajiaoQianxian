@@ -1,0 +1,154 @@
+ {
+    "StartUp":{
+        "next":[
+            "HomeFlag",
+            "HomeButton",
+            "FlagTanc2",
+            "Sub_StartGame",
+            "Sub_LinkStart",
+            "Sub_Startjczx"
+        ]
+    },
+
+    "Sub_StartUp":{
+        "is_sub":true,
+        "next":[
+            "HomeFlag",
+            "HomeButton",
+            "Sub_StartGame",
+            "Stop"
+        ]
+    },
+
+    "Sub_Startjczx":{
+        "is_sub": true,
+        "action":"StartApp",
+        "package":"com.megagame.crosscore/com.megagame.crosscore.extend.PhoneUtilActivity"
+    },
+
+    "Sub_StartGame":{
+        "is_sub":true,
+        "recognition":"OCR",
+        "expected":"开始游戏",
+        "action":"Click"
+    },
+
+    "HomeFlag":{
+        "recognition": "TemplateMatch",
+        "template": "bujizhan_947_479_144_81__897_429_244_181.png",
+        
+        "action": "Click",
+        "target":[1077, 660, 49, 27]
+    },
+
+    "HomeButton":{
+        "recognition":"TemplateMatch",
+        "template":"homekey_175_24_88_46__125_0_188_146.png",
+        
+        "action":"Click",
+        
+        "next":[
+            "Sub_YesButton",
+            "HomeButton",
+            
+            "FlagTanc2" 
+        ]
+    },
+
+    "CloseTanc":{
+        "next":[
+            "FlagTanc",
+            "FlagTanc2",
+            "ClickXuank",
+            "HomeButton"
+        ]
+    },
+
+    "FlagXuank":{
+        "recognition":"TemplateMatch",
+        "template":"gouxuan_1060_609_34_35__1010_559_134_135.png",
+        "next":[
+            "ClickXX"
+        ]
+    },
+
+    "FlagTanc":{
+        "recognition":"OCR",
+        "expected":"补给站",
+        "roi":[
+            947,479,144,81
+        ]
+        
+    },
+
+    "FlagTanc2":{
+        "recognition":"OCR",
+        "expected":"今天不再提示",
+        "next":[
+            "CloseTanc"
+        ]
+        
+        
+    
+    },
+
+    "ClickXuank":{
+        "recognition":"TemplateMatch",
+        "template":"xuankuang_1057_609_40_37__1007_559_140_137.png",
+        "action":"Click",
+        "next":[
+            "ClickXX"
+        ]
+    },
+
+    "ClickXX":{
+        "recognition":"TemplateMatch",
+        "template":"XX_1193_79_37_38__1143_29_137_138.png",
+        "action":"Click"
+    },
+
+    "Sub_LinkStart":{
+        "is_sub":true,
+        "recognition":"TemplateMatch",
+        "template":[
+        "LinkStart001.png",
+        "LinkStart002.png",
+        "LinkStart003.png",
+        "LinkStart004.png",
+        "LinkStart005.png"
+        ]
+
+    },
+
+    "Sub_YesButton":{
+        "is_sub":false,
+        "recognition":"OCR",
+        "expected":"确定",
+      
+        "action":"Click",
+        "target":[
+            727,
+            424,
+            149,
+            48
+        ],
+        "next":[
+            "HomeButton"
+        ]
+    },
+
+    "CloseGg":{
+        "recognition":"TemplateMatch",
+        "template":"192501_1062_612_29_30__1012_562_129_130.png",
+        
+        "action":"Click",
+        "target":[
+            1062,
+            612,
+            29,
+            30
+        ]
+    },
+
+    "Stop":{}
+}

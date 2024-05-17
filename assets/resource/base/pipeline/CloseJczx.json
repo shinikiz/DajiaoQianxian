@@ -1,0 +1,6 @@
+{
+    "CloseJczx":{
+        "action":"StopApp",
+        "package":"com.megagame.crosscore"
+    }
+}
