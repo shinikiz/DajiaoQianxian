@@ -1,0 +1,376 @@
+{   
+    "Base":{
+        "next":[
+            "EnterBase",
+            "CollectOre",
+            "ChangeShiftsDorm",
+            "Sub_StartUp"
+        ]
+    },
+
+    "EnterBase":{
+        "recognition":"OCR",
+        "expected":"基地",
+        "roi":[
+            1050,649,104,58
+        ],
+        "action":"Click",
+         "next":[
+            "EnterBase",
+            "ChangeShiftsDorm",
+            "CollectOre",
+            "Sub_LinkStart"
+        ]
+    },
+
+    
+
+    "ChangeShiftsDorm":{
+
+        "next":[
+        "OffDuty",
+        "Sub_EnterFilter",
+        "Sub_DormFlag",
+        "Sub_EnterDorm"
+
+        
+        ]
+    },
+
+    "Sub_DormFlag":{
+        "is_sub":true,
+        "recognition":"OCR",
+        "expected":"好友拜访",
+        "action":"DoNothing"
+    },
+
+    "Sub_EnterDorm":{
+        "is_sub":true,
+        "recognition":"OCR",
+        "expected":"宿舍",
+        "roi":[
+            826,173,96,89
+        ],
+        "action":"Click"
+    },
+
+    "OffDuty":{
+        "recognition":"OCR",
+        "expected":"疲劳值",
+        "next":[
+            "Ataqila",
+            "Chisui",
+            "Mijialuo",
+            "Rier",
+            "Bingbao",
+            "FlagSaide",
+            "Sub_Swipedown",
+            "CharaConfirm"
+
+        ]
+    },
+
+    "EmployeeMood":{
+
+    },
+
+    "Central":{
+
+    },
+
+    "OreMill":{
+
+    },
+
+    "FlagSaide":{
+        "recognition":"TemplateMatch",
+        "template":"saide_1225_520_35_144__1145_470_135_244.png",
+        "roi":[
+            1225,530,35,144
+        ],
+        "next":[
+            "Sub_Swipeup"
+        ]
+    },
+
+    "Sub_Swipedown":{
+        "is_sub":true,
+        "recognition":"OCR",
+        "expected":"疲劳值",
+        "action":"Swipe",
+        "begin":[
+            815,450,10,10
+        ],
+        "end":[
+            815,150,10,10
+        ],
+        "duration":1500,
+        "pre_wait_freezes":3000,
+        "next":[
+            
+            "FlagSaide",
+            "OffDuty",
+            "Sub_Swipedown"
+        ]
+    },
+
+    "FilterFlag":{
+        
+    },
+
+    "FlagSaigo":{
+        "recognition":"TemplateMatch",
+        "template":"Saigo_1219_60_43_176__1137_10_143_276.png",
+        "roi":[
+            1219,60,43,176
+        ],
+        "next":[
+            "Sub_TipsConfirm",
+            "Sub_DormConfirm",
+            "CallOver"
+        ]
+    },
+
+    "Sub_EnterFilter":{
+        "is_sub":true,
+        "recognition":"OCR",
+        "expected":"好友拜访",
+        "next":[
+            "ClickAdd",
+            "Sub_ClickCharaD",
+            "Sub_DormFlag",
+            "Sub_EnterDorm"
+            
+        ]
+    },
+
+    "ClickAdd":{
+        "recognition":"OCR",
+        "expected":"驻员情况",
+        "action":"Click",
+        "target_offset":[
+            100,100,0,0
+        ]
+    },
+
+
+    "Sub_ClickCharaD":{
+        "recognition":"OCR",
+        "expected":"角色",
+        "action":"Click"
+    },
+
+    "Sub_OutFilter":{
+        "is_sub":true,
+         "next":[
+            "Sub_TipsConfirm",
+            "Sub_DormConfirm"
+        ]
+    },
+
+    "BackBase":{
+        "next":[
+        
+        "EnterBase",
+        "Sub_HomeButton",
+        "Sub_HomeFlag"
+        ]
+    },
+
+    "CharaConfirm":{
+        "next":[
+            "StartCall",
+            "FlagCall",
+            "BackBase"
+
+            
+        ]
+    },
+
+    "FlagCall":{
+        "recognition":"OCR",
+        "expected":"驻员情况",
+        "action":"DoNothing"
+        
+    },
+
+    "StartCall":{
+        "next":[
+            "AtaqilaT",
+            "ChisuiT",
+            "BingbaoT",
+            "MijialuoT",
+            "RierT",
+            "BackBase"
+
+        ]
+    },
+
+    "CallOver":{
+        "next":[
+            "CharaConfirm",
+            "Sub_OutFilter"
+
+        ]
+    },
+
+    "Sub_TipsConfirm":{
+        "recognition":"OCR",
+        "expected":"确定",
+        "roi":[
+            726,422,153,52
+        ],
+        "action":"Click",
+        "target":[
+            726,422,153,52
+        ]
+    },
+
+
+    "Sub_DormConfirm":{
+        "recognition":"OCR",
+        "expected":"确定",
+        "roi":[
+            904,644,152,51
+        ],
+        "action":"Click",
+        "target":[
+            904,644,152,51
+        ]
+    },
+
+    "Sub_Swipeup":{
+        
+        
+        "action":"Swipe",
+        "begin":[
+            815,150,10,10
+        ],
+        "end":[
+            815,650,10,10
+        ],
+        "duration":200,
+        
+        "pre_wait_freezes":200,
+        "next":[
+            "FlagSaigo",
+            "Sub_Swipeup"
+        ]
+        
+    },
+
+    "Ataqila":{
+        "recognition":"TemplateMatch",
+        "template":"Ataqila_465_254_113_186__415_204_213_286.png",
+        "threshold":0.9,
+        "roi":[
+            425,130,780,500
+        ],
+ 
+        "action":"Click",
+        "target_offset":[
+            0,0,0,0
+        ],
+        "pre_wait_freezes":1000,
+        "next":[
+            "Chisui",
+            "Mijialuo",
+            "Rier",
+            "Bingbao",
+            "Sub_Swipedown"
+        ]
+    },
+
+    "Chisui":{
+        "recognition":"TemplateMatch",
+        "template":"chisui_467_133_113_192__417_83_213_292.png",
+        "threshold":0.9,
+
+        "roi":[
+            425,130,780,500
+        ],
+        "action":"Click",
+        "pre_wait_freezes":1000,
+        "next":[
+            "Mijialuo",
+            "Rier",
+            "Bingbao",
+            "Sub_Swipedown"
+        ]
+    },
+
+
+    "Mijialuo":{
+        "recognition":"TemplateMatch",
+        "template":"Mijialuo_781_143_112_182__731_93_212_282.png",
+        "threshold":0.9,
+
+        "roi":[
+            425,130,780,500
+        ],
+        "action":"Click",
+        "pre_wait_freezes":1000,
+        "next":[
+
+            "Rier",
+            "Bingbao",
+            "Sub_Swipedown"
+        ]
+    },
+
+
+    "Rier":{
+        "recognition":"TemplateMatch",
+        "template":"Rier_939_144_110_181__889_94_210_281.png",
+        "threshold":0.9,
+        "roi":[
+            425,130,780,500
+        ],
+        "action":"Click",
+        "pre_wait_freezes":1000,
+        "next":[
+
+            "Bingbao",
+            "Sub_Swipedown"
+        ]
+    },
+
+
+    "Bingbao":{
+        "recognition":"TemplateMatch",
+        "template":"Binggao_625_144_109_182__575_94_209_282.png",
+        "threshold":0.9,
+        "roi":[
+            425,130,780,500
+        ],
+        "action":"Click",
+        "pre_wait_freezes":1000,
+        "next":[
+            "Sub_Swipeup"
+        ]
+    },
+
+    "CollectOre":{
+        "next":[
+            "ClickBlank",
+            "ClickOre",
+            "BackBase"
+        ]
+
+    },
+    
+    "ClickOre": {
+        "is_Sub":true,
+        "recognition":"TemplateMatch",
+        "template":"Ore_444_440_232_72__394_390_332_172.png",
+        "action":"Click",
+        "pre_wait_freezes":10
+        
+    },
+    "ClickBlank": {
+        
+        "recognition":"OCR",
+        "expected":"点击空白处继续",
+        "action":"Click"
+    }
+}

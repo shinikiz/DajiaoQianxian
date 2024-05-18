@@ -1,0 +1,67 @@
+{
+"Dorm":{
+    "next":[
+        "EnterDorm",
+        "ClickChara",
+        "ClickDorm",
+        "ClearDorm",
+        "OffDuty"
+    ]
+},
+
+"OffDuty":{
+    "next":[
+        "CheckChara",
+        "Ataqila",
+        "Chisui",
+        "Mijialuo",
+        "Rier",
+        "Bingbao"
+
+    ]
+},
+
+"Swipe":{
+    "action":"Swipe",
+    "begin":[
+        815,410,10,10
+    ],
+    "end":[
+        815,150,10,10
+    ]
+
+},
+
+"Ataqila":{
+    "recognition":"OCR",
+    "expected":"阿塔契拉",
+    "action":"Click"
+},
+
+"Chisui":{
+    "recognition":"OCR",
+    "expected":"赤髓",
+    "action":"Click"
+},
+
+
+"Mijialuo":{
+    "recognition":"OCR",
+    "expected":"米伽洛",
+    "action":"Click"
+},
+
+
+"Rier":{
+    "recognition":"OCR",
+    "expected":"日珥",
+    "action":"Click"
+},
+
+
+"Bingbao":{
+    "recognition":"OCR",
+    "expected":"冰暴",
+    "action":"Click"
+}
+}

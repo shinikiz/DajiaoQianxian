@@ -1,0 +1,26 @@
+"ChangeShifts":{
+    "next":[
+    "EnterBase",
+    "HarvestOre",
+    "Central",
+    "EmployeeMood",
+    "Quarry",
+    "Dorm"
+
+
+    ]
+    
+
+},
+
+"Dorm":{
+    "next":[
+        "EnterDorm",
+        "ClickChara",
+        "ClickDorm",
+        "ClearDorm",
+        "OffDuty"
+    ]
+},
+
+"CheckChara",

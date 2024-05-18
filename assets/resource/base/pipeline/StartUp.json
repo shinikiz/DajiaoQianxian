@@ -2,20 +2,30 @@
     "StartUp":{
         "next":[
             "HomeFlag",
-            "HomeButton",
+            "Sub_YesButton",
+            "Sub_HomeButton",
+            "Sub_FlagSaodang",
             "FlagTanc2",
+            "Qiandao",
             "Sub_StartGame",
             "Sub_LinkStart",
             "Sub_Startjczx"
         ]
     },
+    
+    
 
     "Sub_StartUp":{
         "is_sub":true,
         "next":[
             "HomeFlag",
-            "HomeButton",
+            "Sub_YesButton",
+            "Sub_HomeButton",
+            "Sub_FlagSaodang",
+            "FlagTanc2",
+            "Qiandao",
             "Sub_StartGame",
+            "Sub_LinkStart",
             "Stop"
         ]
     },
@@ -24,6 +34,7 @@
         "is_sub": true,
         "action":"StartApp",
         "package":"com.megagame.crosscore/com.megagame.crosscore.extend.PhoneUtilActivity"
+        
     },
 
     "Sub_StartGame":{
@@ -36,31 +47,53 @@
     "HomeFlag":{
         "recognition": "TemplateMatch",
         "template": "bujizhan_947_479_144_81__897_429_244_181.png",
-        
-        "action": "Click",
-        "target":[1077, 660, 49, 27]
+        "pre_wait_freezes":5000,
+        "next":[
+            "HomeFlag2",
+            "FlagTanc2"
+        ]     
     },
 
-    "HomeButton":{
+    "Sub_HomeFlag":{
+        "is_sub":true,
+        "recognition": "TemplateMatch",
+        "template": "bujizhan_947_479_144_81__897_429_244_181.png"
+        
+          
+    },
+
+
+    "HomeFlag2":{
+        "recognition": "TemplateMatch",
+        "template": "bujizhan_947_479_144_81__897_429_244_181.png"
+        
+        
+    },
+
+    "Sub_HomeButton":{
+        "is_sub":true,
         "recognition":"TemplateMatch",
         "template":"homekey_175_24_88_46__125_0_188_146.png",
         
-        "action":"Click",
+        "action":"Click"
         
-        "next":[
-            "Sub_YesButton",
-            "HomeButton",
-            
-            "FlagTanc2" 
+    },
+
+    "Sub_FlagSaodang":{
+        "recognition":"OCR",
+        "expected":"无限制次数",
+        "roi":[
+            795,489,298,111
         ]
+        
     },
 
     "CloseTanc":{
         "next":[
             "FlagTanc",
-            "FlagTanc2",
+            "FlagXuank",
             "ClickXuank",
-            "HomeButton"
+            "Sub_HomeButton"
         ]
     },
 
@@ -87,9 +120,38 @@
         "next":[
             "CloseTanc"
         ]
-        
-        
     
+    },
+
+    "FlagqQiandao":{
+        "recognition":"OCR",
+        "expected":"已签到",
+        "action":"Click",
+        "next":[
+            "Qiandao"
+        ]
+    },
+
+    "Qiandao":{
+        "recognition":"OCR",
+        "expected":"已签到",
+        "roi":[
+            1085,576,158,58
+        ],
+        "action":"Click",
+        "target":[
+            1085,576,158,58
+        ],
+        "next":[
+            "ClickBack"
+        ]
+    },
+
+    "ClickBack":{
+        "recognition":"TemplateMatch",
+        "template":"Back_33_23_141_52__0_0_241_152.png",
+        "action":"Click"
+
     },
 
     "ClickXuank":{
@@ -104,24 +166,30 @@
     "ClickXX":{
         "recognition":"TemplateMatch",
         "template":"XX_1193_79_37_38__1143_29_137_138.png",
-        "action":"Click"
+        "action":"Click",
+        "next":[
+            "HomeFlag"
+        ]
     },
 
     "Sub_LinkStart":{
         "is_sub":true,
         "recognition":"TemplateMatch",
         "template":[
-        "LinkStart001.png",
-        "LinkStart002.png",
-        "LinkStart003.png",
-        "LinkStart004.png",
-        "LinkStart005.png"
+        "LinkStart001_456_137_375_101__406_87_475_201.png",
+        "LinkStart002_513_275_250_169__463_225_350_269.png",
+        "LinkStart003_434_289_411_178__384_239_511_278.png",
+        "LinkStart004_586_576_109_107__536_513_209_207.png",
+        "LinkStart005_345_167_589_184__295_117_689_284.png"
+        ],
+        "roi":[
+            0,0,0,0
         ]
 
     },
 
     "Sub_YesButton":{
-        "is_sub":false,
+        
         "recognition":"OCR",
         "expected":"确定",
       
@@ -131,10 +199,9 @@
             424,
             149,
             48
-        ],
-        "next":[
-            "HomeButton"
         ]
+        
+       
     },
 
     "CloseGg":{
